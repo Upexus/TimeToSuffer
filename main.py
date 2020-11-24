@@ -62,9 +62,9 @@ async def on_message(message):
                                        '\nADD:  #add([name],[response])'
                                        '\nLIST: #list {[name]}')
         if '#add' in thing:  # god this is fucking disgusting
-            string = message.content[message.content.find('(') + 1:message.content.find(')')]
+            string = f"{message.content[message.content.find('(') + 1:message.content.find(')')]} "
             name = string[:string.find(',')]
-            response = string[string.find(',') + 1:string.find(')')].strip()
+            response = string[string.find(',') + 1:string.find(')')].lstrip()
             file = open(f'{name}.txt', 'a')
             file.write(f'{response}\n')
             file.close()
