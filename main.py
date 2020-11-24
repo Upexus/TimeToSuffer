@@ -6,7 +6,8 @@ import tkinter as tk
 from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+# TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = input("Please put in bot token for TIMETOSUFFER>")
 
 client = discord.Client()
 window = tk.Tk()
