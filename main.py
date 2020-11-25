@@ -54,7 +54,7 @@ async def on_message(message):
             for x in range(diceNum):
                 rolls.append(random.randint(1, sideNum))
             for x in rolls:
-                output += f'Roll {y}: {x}\n'
+                output += f'{y}: {x}\n'
                 y += 1
             await message.channel.send(output)
         if '#syntax' in thing:
