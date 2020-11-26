@@ -84,6 +84,8 @@ async def on_message(message):
             with file as f:
                 output = [line.strip() for line in f]
             await message.channel.send(output)
+        if '#art' in thing:
+            await message.channel.send(f'This is real art you cucks:\n{music_shit()}')
     else:
         for x in nameList:
             if x in thing:
@@ -108,6 +110,13 @@ def name_function(name):
         responses = [line.strip() for line in f]
 
     return random.choice(responses)
+
+
+def music_shit():
+    with open(f'music.txt', 'r') as f:
+        songs = [line.strip() for line in f]
+
+    return random.choice(songs)
 
 
 client.run(TOKEN)
