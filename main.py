@@ -113,7 +113,7 @@ def name_function(name):
 
 
 def music_shit():
-    with open(f'music.txt', 'r') as f:
+    with open('music.txt', 'r') as f:
         songs = [line.strip() for line in f]
 
     return random.choice(songs)
