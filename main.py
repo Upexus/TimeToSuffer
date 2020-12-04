@@ -27,27 +27,29 @@ async def on_message(message):
     if message.channel.id == '502943665480531972':
         return
     if 'nigger' in thing:
-        await message.channel.send('NO NO WORD')
+        response = message.channel.send('NO NO WORD')
+        await response
         await message.delete()
     if 'nigga' in thing:
-        await message.channel.send('NO NO WORD')
+        response = message.channel.send('NO NO WORD')
+        await response
         await message.delete()
     if message.author == client.user:
         return
     if "#" in thing:
         if 'c#' in thing:
-            await message.channel.send("<@196490316881068032>")
+            response = message.channel.send("<@196490316881068032>")
+            await response
         if '#harass' in thing:
             await message.author.create_dm()
-            await message.author.dm_channel.send(file=discord.File('bruh.png'))
-            await message.author.dm_channel.send('Time to suffer')
+            response = message.author.dm_channel.send(file=discord.File('bruh.png'))
+            await response
+            response = message.author.dm_channel.send('Time to suffer')
+            await response
         if '#dice' in thing:
             rollPerm = message.content[message.content.find('(') + 1:message.content.find(')')]
-            print(rollPerm)
             sideNum = int(rollPerm[:rollPerm.find(',')])
             diceNum = int(rollPerm[rollPerm.find(',') + 1:])
-            print(sideNum)
-            print(diceNum)
             rolls = []
             y = 1
             output = ''
@@ -56,12 +58,16 @@ async def on_message(message):
             for x in rolls:
                 output += f'{y}: {x}\n'
                 y += 1
-            await message.channel.send(output)
+            response = message.channel.send(output)
+            await response
         if '#syntax' in thing:
-            await message.channel.send('DICE: #dice([numOfSides],[numOfDice])'
-                                       '\nADD:  #add([name],[response])'
-                                       '\nLIST: #list {[name]}')
-        if '#add' in thing:  # god this is fucking disgusting
+            response = message.channel.send('DICE: #dice([numOfSides],[numOfDice])'
+                                            '\nADD:  #add([name],[response])'
+                                            '\nLIST: #list {[name]}')
+            await response
+        if '#add' in thing:
+            # god this is fucking disgusting, I genuinely can't tell you what is happening here,
+            # I wrote this on like 2 cans of monster
             string = f"{message.content[message.content.find('(') + 1:message.content.find(')')]} "
             name = string[:string.find(',')]
             response = string[string.find(',') + 1:string.find(')')].lstrip()
@@ -73,27 +79,31 @@ async def on_message(message):
                 nameFile.write(f'{name}\n')
                 nameList.append(name)
             nameFile.close()
-            await message.channel.send(f'Done. \nName: {name}\nMessage: {response}')
+            response = message.channel.send(f'Done. \nName: {name}\nMessage: {response}')
+            await response
         if '#list' in thing:
             name = message.content[message.content.find('{') + 1:message.content.find('}')]
             try:
                 file = open(f'{name}.txt', 'r')
             except FileNotFoundError:
-                await message.channel.send('file not found cuck')
+                response = message.channel.send('file not found cuck')
+                await response
                 return
             with file as f:
                 output = [line.strip() for line in f]
-            await message.channel.send(output)
+            response = message.channel.send(output)
+            await response
         if '#art' in thing:
-            await message.channel.send(f'This is real art you cucks:\n{music_shit()}')
+            response = message.channel.send(f'This is real art you cucks:\n{music_shit()}')
+            await response
     else:
         for x in nameList:
             if x in thing:
-                await message.channel.send(name_function(x))
+                response = message.channel.send(name_function(x))
+                await response
     if 'nerd' in thing:
-        await message.channel.send('Bruh ima fuck your dad')
-    if message.author.id == 379598678920527874:
-        await message.channel.send('no u')
+        response = message.channel.send('Bruh ima fuck your dad')
+        await response
 
 
 @client.event
