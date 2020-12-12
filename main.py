@@ -96,6 +96,8 @@ async def on_message(message):
         if '#art' in thing:
             response = message.channel.send(f'This is real art you cucks:\n{music_shit()}')
             await response
+        if '#penis' in thing:
+            await message.channel.send(i_did_this_with_a_controller())
     else:
         for x in nameList:
             if x in thing:
@@ -127,6 +129,10 @@ def music_shit():
         songs = [line.strip() for line in f]
 
     return random.choice(songs)
+
+
+def i_did_this_with_a_controller():
+    return 'i wrote this with a controller and a on screen keyboard'
 
 
 client.run(TOKEN)
