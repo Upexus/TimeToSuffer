@@ -7,7 +7,7 @@ import tkinter as tk
 
 # load_dotenv()
 # TOKEN = os.getenv('DISCORD_TOKEN')
-TOKEN = 'NzI2MTQ0MjE1MDU0MTU1ODU2 #.XvZAfw.GZEVsQb4xuNeoHcY2HrApFYlZag'
+TOKEN = NzI2MTQ0MjE1MDU0MTU1ODU2.XvZAfw.GZEVsQb4xuNeoHcY2HrApFYlZagV
 
 client = discord.Client()
 # window = tk.Tk()
