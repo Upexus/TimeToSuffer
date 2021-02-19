@@ -7,7 +7,7 @@ import tkinter as tk
 
 # load_dotenv()
 # TOKEN = os.getenv('DISCORD_TOKEN')
-TOKEN = 'NzI2MTQ0MjE1' #MDU0MTU1ODU2.XvZAfw.-SuwP5dXjBUviLILcrqjMqdPWx4'
+TOKEN = 'NzI2MTQ0MjE1MDU0MTU1ODU2.XvZAfw.-SuwP5dXjBUviLILcrqjMqdPWx4'
 
 client = discord.Client()
 # window = tk.Tk()
@@ -82,7 +82,7 @@ async def on_message(message):
             response = message.channel.send(f'Done. \nName: {name}\nMessage: {response}')
             await response
         if '#list' in thing:
-            name = message.content[message.content.find('{') + 1:message.content.find('}')]
+            name = message.content[message.content.find('(') + 1:message.content.find(')')]
             try:
                 file = open(f'{name}.txt', 'r')
             except FileNotFoundError:
@@ -90,9 +90,8 @@ async def on_message(message):
                 await response
                 return
             with file as f:
-                output = [line.strip() for line in f]
-            response = message.channel.send(output)
-            await response
+                for line in f:
+                    await message.channel.send(line.strip())
         if '#art' in thing:
             response = message.channel.send(f'This is real art you cucks:\n{music_shit()}')
             await response
@@ -105,9 +104,6 @@ async def on_message(message):
             if x in thing:
                 response = message.channel.send(name_function(x))
                 await response
-    if 'nerd' in thing:
-        response = message.channel.send('Bruh ima fuck your dad')
-        await response
 
 
 @client.event
